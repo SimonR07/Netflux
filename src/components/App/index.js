@@ -2,15 +2,17 @@
 import React from 'react';
 
 
-
+import Home from 'src/components/Home';
 // == Import : local
-import Header from 'src/components/Header';
 import './app.scss';
+import dataMovies from 'src/data/movies';
 
 // == Composant
 const App = () => (
   <div id="app">
-    <Header />
+    <Home
+      movies={dataMovies}
+    />
   </div>
 );
 
