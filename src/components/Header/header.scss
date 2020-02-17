@@ -1,22 +1,16 @@
-.main-header {
-  width: 100vw;
-  height:auto;
-}
-.container {
+
+.header {
   display: flex;
-  
-  align-items: center;
+  justify-content: space-between;  
 	max-width: 100%;
-	// padding: 20px;
-	// margin: 0 auto;
+	padding: .7rem;
+	margin: 0 auto;
 }
 .logo {
-  justify-content: flex-start;
   width: 10em;
 
 }
 .pop {
-  justify-content: flex-end;
   margin: .4rem;
   height: 2em;
 }
