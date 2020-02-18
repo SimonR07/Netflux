@@ -1,11 +1,19 @@
 import React from 'react';
 
-import './posterslist.scss';
 import Poster from './Poster';
+import './posterslist.scss';
 
-const PostersList = () => (
-  <div className="posterlist">
-    <Poster />
+const PostersList = ({ movies }) => (
+  <div className="posterslist">
+    {movies.map((movie) => (
+      <Poster
+        className="poster"
+        key={movie.id}
+        title={movie.title}
+        image={movie.poster_path}
+      />
+
+    ))}
   </div>
 );
 

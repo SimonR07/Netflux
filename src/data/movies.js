@@ -5,7 +5,7 @@ export default [
     overview:
       'Emmanuelle s\'envole de Paris pour Bangkok afin d\'y rejoindre Jean, son mari qui occupe un poste de diplomate ; lorsqu\'il lui demande si elle a eu des amants pendant qu\'elle était seule à Paris, elle lui affirme que non. ',
     poster_path: 'https://data.sueursfroides.fr/affiche-spermula-3644.jpg',
-    title: 'Emmanuelle',
+    title: ' Creampie Diaries ',
   },
   {
     backdrop_path: './posters/emmanuelle.jpg',
@@ -13,7 +13,7 @@ export default [
     overview:
       'Emmanuelle s\'envole de Paris pour Bangkok afin d\'y rejoindre Jean, son mari qui occupe un poste de diplomate ; lorsqu\'il lui demande si elle a eu des amants pendant qu\'elle était seule à Paris, elle lui affirme que non. ',
     poster_path: 'https://data.sueursfroides.fr/affiche-spermula-3644.jpg',
-    title: 'Emmanuelle',
+    title: 'Wet Hot Summer',
   },
   {
     backdrop_path: './posters/emmanuelle.jpg',
@@ -21,7 +21,7 @@ export default [
     overview:
       'Emmanuelle s\'envole de Paris pour Bangkok afin d\'y rejoindre Jean, son mari qui occupe un poste de diplomate ; lorsqu\'il lui demande si elle a eu des amants pendant qu\'elle était seule à Paris, elle lui affirme que non. ',
     poster_path: 'https://data.sueursfroides.fr/affiche-spermula-3644.jpg',
-    title: 'Emmanuelle',
+    title: 'Make \'Em Sweat',
   },
   {
     backdrop_path: './posters/emmanuelle.jpg',
@@ -29,6 +29,6 @@ export default [
     overview:
       'Emmanuelle s\'envole de Paris pour Bangkok afin d\'y rejoindre Jean, son mari qui occupe un poste de diplomate ; lorsqu\'il lui demande si elle a eu des amants pendant qu\'elle était seule à Paris, elle lui affirme que non. ',
     poster_path: 'https://data.sueursfroides.fr/affiche-spermula-3644.jpg',
-    title: 'Emmanuelle',
+    title: 'Hard Workouts',
   },
 ];

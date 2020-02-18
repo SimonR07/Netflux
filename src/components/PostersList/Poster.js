@@ -1,10 +1,9 @@
 import React from 'react';
 
-const Poster = () => (
+
+const Poster = ({ title }) => (
   <div className="poster">
-    <h3>
-      Yallah
-    </h3>
+    <h3>{title}</h3>
   </div>
 );
 
