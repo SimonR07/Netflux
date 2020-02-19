@@ -8,13 +8,26 @@ import './app.scss';
 import dataMovies from 'src/data/movies';
 
 // == Composant
-const App = () => (
-  <div id="app">
-    <Home
-      movies={dataMovies}
-    />
-  </div>
-);
+class App extends React.Component {
+  state={
+    loading: false,
+    movies: dataMovies,
+    badge: null,
+    activePage: null,
+    totalPage: null,
+    searchText: '',
+  }
+
+  render() {
+    return (
+      <div id="app">
+        <Home
+          {...this.state}
+        />
+      </div>
+    );
+  }
+}
 
 // == Export
 export default App;
