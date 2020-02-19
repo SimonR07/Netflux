@@ -13,16 +13,12 @@ const Home = ({
   activePage,
   totalPage,
   searchText,
+  loadMore,
 }) => {
 
   const handleSearch = value => {
     console.log('handleSearch :', value);
   };
-
-  const loadMore = () => {
-    console.log('loadMore :');
-
-  }
 
   return (
     <>
