@@ -6,12 +6,10 @@ import pop from 'src/images/pop-corn.svg';
 import SearchBar from './searchBar';
 
 
-const Header = ({ onSearchClick }) => (
+const Header = () => (
   <div className="header">
     <img src={logo} className="logo" alt="logo" />
-    <SearchBar
-      onSearchClick={onSearchClick}
-    />
+    <SearchBar />
     <img src={pop} className="pop" alt="pop" />
   </div>
 );

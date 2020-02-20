@@ -7,24 +7,12 @@ import './home.scss';
 
 
 const Home = ({
-  movies,
-  loading,
-  badge,
-  activePage,
-  totalPage,
-  searchText,
-  loadMore,
+  movies, loading, badge, loadMore,
 }) => {
-
-  const handleSearch = value => {
-    console.log('handleSearch :', value);
-  };
-
   return (
     <>
       <Header
         badge={badge}
-        onSearchClick={handleSearch}
       />
       <PostersList
         movies={movies}

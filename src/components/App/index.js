@@ -6,11 +6,11 @@ import axios from 'axios';
 import Home from 'src/components/Home';
 // == Import : local
 import './app.scss';
-import dataMovies from 'src/data/movies';
+// import dataMovies from 'src/data/movies';
 
 
 const API_END_POINT = 'https://api.themoviedb.org/3/';
-const POPULAR_MOVIES_URL = 'discover/movie?language=en&sort_by=popularity.desc&include_adult=true';
+const POPULAR_MOVIES_URL = 'discover/movie?language=en&sort_by=popularity.desc&include_adult=true';
 const API_KEY = 'api_key=5dd8930949e7c1cc9ceda25ad6ac8de5';
 // const SEARCH_URL = 'search/movie?language=en&include_adult=false';
 
@@ -23,7 +23,6 @@ class App extends React.Component {
     badge: null,
     activePage: null,
     totalPage: null,
-    searchText: '',
   }
 
   async componentDidMount() {
