@@ -12,22 +12,23 @@ import './app.scss';
 const API_END_POINT = 'https://api.themoviedb.org/3/';
 const POPULAR_MOVIES_URL = 'discover/movie?language=en&sort_by=popularity.desc&include_adult=true';
 const API_KEY = 'api_key=5dd8930949e7c1cc9ceda25ad6ac8de5';
-// const SEARCH_URL = 'search/movie?language=en&include_adult=false';
+const SEARCH_URL = 'search/movie?language=en&include_adult=false';
 
 
 // == Composant
 class App extends React.Component {
-  state={
+  state = {
     loading: false,
     movies: [],
     badge: null,
     activePage: null,
     totalPage: null,
+    searchText: '',
   }
 
   async componentDidMount() {
     try {
-      const { data : { results, page, total_pages } } = await this.loadMovies();
+      const { data: { results, page, total_pages } } = await this.loadMovies();
       console.log('res', results);
       this.setState({
         movies: results,
@@ -41,11 +42,35 @@ class App extends React.Component {
     }
   }
 
+  searchMovie = () => {
+    const { searchText } = this.state;
+    const url = `${API_END_POINT}${SEARCH_URL}&${API_KEY}&query=${searchText}`;
+    return axios.get(url);
+    // console.log('searchText :', searchText, url);
+  };
+
+  handleSearch = (value) => {
+    console.log('handelsearch:', value);
+    try {
+      this.setState({ loading: true, searchText: value }, async () => {
+        const { data: { results, total_pages } } = await this.searchMovie();
+        console.log('ressearch', results);
+        this.setState({
+          movies: results,
+          loading: false,
+        })
+      })
+    } catch (e) {
+      console.log('e', e);
+    }
+    console.log('handleSearch', value);
+  }
+
   loadMore = async () => {
 
     try {
       this.setState({ loading: true });
-      const { data : { results, page, total_pages } } = await this.loadMovies();
+      const { data: { results, page, total_pages } } = await this.loadMovies();
       console.log('res', results);
       this.setState({
         movies: [...this.state.movies, ...results],
@@ -54,7 +79,7 @@ class App extends React.Component {
         totalPages: total_pages,
       });
     }
-    catch(e) {
+    catch (e) {
       console.log('error load more', e);
     }
     console.log('load more');
@@ -66,12 +91,14 @@ class App extends React.Component {
     return axios.get(url);
   }
 
+
   render() {
     return (
       <div id="app">
         <Home
           loadMore={this.loadMore}
           {...this.state}
+          onSearch={this.handleSearch}
         />
       </div>
     );
