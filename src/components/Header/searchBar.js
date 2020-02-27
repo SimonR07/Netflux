@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import './searchbar.scss';
-import axios from 'axios';
+
+import { func } from 'prop-types';
+// import axios from 'axios';
 
 
-const API_END_POINT = 'https://api.themoviedb.org/3/';
-const API_KEY = 'api_key=5dd8930949e7c1cc9ceda25ad6ac8de5';
-const SEARCH_URL = 'search/movie?language=en&include_adult=false';
+// const API_END_POINT = 'https://api.themoviedb.org/3/';
+// const API_KEY = 'api_key=5dd8930949e7c1cc9ceda25ad6ac8de5';
+// const SEARCH_URL = 'search/movie?language=en&include_adult=false';
 
-const SearchBar = () => {
+const SearchBar = ({ onSearch }) => {
   const [search, setSearch] = useState('');
 
   // const searchMovies = () => {
@@ -19,28 +21,6 @@ const SearchBar = () => {
     setSearch(e.target.value);
   };
 
-  const handleSearch = (value) => {
-    const url = `${API_END_POINT}${SEARCH_URL}&${API_KEY}&query=${search}`;
-    console.log('handleSearch :', value, url);
-  };
-
-  // const handleSearch = value => {
-  //   // lancer la recherche ici
-  //   try {
-  //     setSearch({ loading: true, searchText: value, image: null }, async () => {
-  //       const { data : { results, page, total_pages }} = await searchMovie();
-  //       console.log('res', results);
-  //       setSearch({
-  //         movies: results,
-  //         loading: false,
-  //       })
-  //     })
-  //   } catch(e) {
-  //     console.log('e', e);
-  //   }
-  //   console.log('handleSearch', value);
-  // }
-
   return (
     <div className="searchbar-container">
       <input
@@ -51,7 +31,7 @@ const SearchBar = () => {
         value={search}
         onKeyPress={(e) => {
           if (e.key === 'Enter') {
-            handleSearch(search);
+            onSearch(search);
           }
         }}
       />
@@ -60,3 +40,32 @@ const SearchBar = () => {
 };
 
 export default SearchBar;
+
+SearchBar.defaultProps = {
+  onSearch: func,
+};
+
+SearchBar.propTypes = {
+  onSearch: func,
+};
+
+// const searchMovie = () => {
+//   const url = `${API_END_POINT}${SEARCH_URL}&${API_KEY}&query=${search}`;
+//   console.log('handleSearch :', value, url);
+// };
+
+// const handleSearch = (value) => {
+//   try {
+//     setSearch({ loading: true, searchText: value, image: null }, async () => {
+//       const { data: { results, page, total_pages } } = await searchMovie();
+//       console.log('res', results);
+//       setSearch({
+//         movies: results,
+//         loading: false,
+//       })
+//     })
+//   } catch (e) {
+//     console.log('e', e);
+//   }
+//   console.log('handleSearch', value);
+// },
