@@ -27,6 +27,7 @@ class App extends React.Component {
   }
 
   async componentDidMount() {
+
     try {
       const { data: { results, page, total_pages } } = await this.loadMovies();
       console.log('res', results);
@@ -41,6 +42,7 @@ class App extends React.Component {
       console.log('e', e);
     }
   }
+
 
   searchMovie = () => {
     const { searchText } = this.state;
@@ -67,7 +69,6 @@ class App extends React.Component {
   }
 
   loadMore = async () => {
-
     try {
       this.setState({ loading: true });
       const { data: { results, page, total_pages } } = await this.loadMovies();
@@ -102,6 +103,7 @@ class App extends React.Component {
         />
       </div>
     );
+
   }
 }
 

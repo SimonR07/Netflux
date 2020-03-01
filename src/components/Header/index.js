@@ -1,5 +1,7 @@
 import React from 'react';
 import './header.scss';
+import { func } from 'prop-types';
+
 
 import logo from 'src/images/netflux-logo.svg';
 import pop from 'src/images/pop-corn.svg';
@@ -15,3 +17,11 @@ const Header = ({ onSearch }) => (
 );
 
 export default Header;
+
+Header.defaultProps = {
+  onSearch: func,
+};
+
+Header.propTypes = {
+  onSearch: func,
+};
