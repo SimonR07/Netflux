@@ -1,9 +1,12 @@
 // == Import : npm
 import React from 'react';
 import axios from 'axios';
-
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Home from 'src/components/Home';
+import Header from 'src/components/Header';
+import Movie from 'src/components/Movie';
+import NotFound from 'src/components/NotFound';
 // == Import : local
 import './app.scss';
 // import dataMovies from 'src/data/movies';
@@ -18,7 +21,7 @@ const SEARCH_URL = 'search/movie?language=en&include_adult=false';
 // == Composant
 class App extends React.Component {
   state = {
-    loading: false,
+    loading: true,
     movies: [],
     badge: null,
     activePage: null,
@@ -58,16 +61,16 @@ class App extends React.Component {
         this.setState({
           movies: results,
           loading: false,
-        })
-      })
-    } catch (e) {
+        });
+      });
+    }
+    catch (e) {
       console.log('e', e);
     }
     console.log('handleSearch', value);
   }
 
   loadMore = async () => {
-
     try {
       this.setState({ loading: true });
       const { data: { results, page, total_pages } } = await this.loadMovies();
@@ -93,14 +96,26 @@ class App extends React.Component {
 
 
   render() {
+    const { movies, badge } = this.state;
     return (
-      <div id="app">
-        <Home
-          loadMore={this.loadMore}
-          {...this.state}
-          onSearch={this.handleSearch}
-        />
-      </div>
+      <BrowserRouter>
+        <div id="app">
+          <Header onSearch={this.handleSearch} badge={badge} />
+          <Switch>
+            <Route exact path="/">
+              <Home
+                loadMore={this.loadMore}
+                {...this.state}
+              />
+            </Route>
+            <Route exact path="/:id">
+              <Movie />
+            </Route>
+            <Route component={NotFound} />
+          </Switch>
+
+        </div>
+      </BrowserRouter>
     );
   }
 }
