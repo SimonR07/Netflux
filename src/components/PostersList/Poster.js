@@ -7,26 +7,36 @@ import { css } from 'glamor';
 import './poster.scss';
 
 const colorOne = css({
+  fontSize: '9em',
+  fontFamily: 'Roboto',
   ':hover': {
     color: `#${(Math.random() * 0xFFFFFF << 0).toString(16)}`,
   },
 });
 const colorTwo = css({
+  fontSize: '6em',
+  fontFamily: 'Varela Round',
   ':hover': {
     color: `#${(Math.random() * 0xFFFFFF << 0).toString(16)}`,
   },
 });
 const colorThree = css({
+  fontSize: '4em',
+  fontFamily: 'Spartan',
   ':hover': {
     color: `#${(Math.random() * 0xFFFFFF << 0).toString(16)}`,
   },
 });
 const colorFour = css({
+  fontSize: '2em',
+  fontFamily: 'Abel',
   ':hover': {
     color: `#${(Math.random() * 0xFFFFFF << 0).toString(16)}`,
   },
 });
 const colorFive = css({
+  fontSize: '1em',
+  fontFamily: 'Poppins',
   ':hover': {
     color: `#${(Math.random() * 0xFFFFFF << 0).toString(16)}`,
   },
