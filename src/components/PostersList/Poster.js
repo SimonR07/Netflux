@@ -2,31 +2,54 @@
 /* eslint-disable no-unused-expressions */
 import React from 'react';
 import { string } from 'prop-types';
+import { css } from 'glamor';
 
 import './poster.scss';
 
+const colorOne = css({
+  ':hover': {
+    color: `#${(Math.random() * 0xFFFFFF << 0).toString(16)}`,
+  },
+});
+const colorTwo = css({
+  ':hover': {
+    color: `#${(Math.random() * 0xFFFFFF << 0).toString(16)}`,
+  },
+});
+const colorThree = css({
+  ':hover': {
+    color: `#${(Math.random() * 0xFFFFFF << 0).toString(16)}`,
+  },
+});
+const colorFour = css({
+  ':hover': {
+    color: `#${(Math.random() * 0xFFFFFF << 0).toString(16)}`,
+  },
+});
+const colorFive = css({
+  ':hover': {
+    color: `#${(Math.random() * 0xFFFFFF << 0).toString(16)}`,
+  },
+});
+const colorSix = css({
+  ':hover': {
+    color: `#${(Math.random() * 0xFFFFFF << 0).toString(16)}`,
+  },
+});
+
 const Poster = ({ title }) => {
   if (title.length <= 5) {
-    return (
-      <h3
-        className="poster-little"
-        style={{
-          fontSize: '8em',
-          fontFamily: 'Roboto',
-          color: `#${(Math.random() * 0xFFFFFF << 0).toString(16)}`,
-        }}
-      >{title}
-      </h3>
-
-    );
+    return <h3 {...colorOne} className="poster-little">{title}</h3>;
   } if (title.length > 5 && title.length <= 10) {
-    return <div><h3 className="poster-middle" style={{ color: `#${(Math.random() * 0xFFFFFF << 0).toString(16)}` }}>{title}</h3></div>;
+    return <h3 {...colorTwo} className="poster-middle">{title}</h3>;
   } if (title.length > 10 && title.length <= 15) {
-    return <div><h3 className="poster-middle2" style={{ color: `#${(Math.random() * 0xFFFFFF << 0).toString(16)}` }}>{title}</h3></div>;
+    return <h3 {...colorThree} className="poster-middle2">{title}</h3>;
   } if (title.length > 15 && title.length <= 20) {
-    return <div><h3 className="poster-middle3" style={{ color: `#${(Math.random() * 0xFFFFFF << 0).toString(16)}` }}>{title}</h3></div>;
+    return <h3 {...colorFour} className="poster-middle3">{title}</h3>;
+  } if (title.length > 20 && title.length <= 40) {
+    return <h3 {...colorFive} className="poster-middle4">{title}</h3>;
   }
-  return <h3 className="poster-big">{title}</h3>;
+  return <h3 {...colorSix} className="poster-big">{title}</h3>;
 };
 export default Poster;
 
