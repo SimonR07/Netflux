@@ -1,5 +1,4 @@
 import React from 'react';
-// import { any } from 'prop-types';
 import { Link } from 'react-router-dom';
 
 
@@ -13,12 +12,5 @@ const Movie = (props) => {
   );
 };
 
-// Movie.defaultProps = {
-//   movies: any,
-// };
-
-// Movie.propTypes = {
-//   movies: any,
-// };
 
 export default Movie;
