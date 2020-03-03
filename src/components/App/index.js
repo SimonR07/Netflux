@@ -96,7 +96,7 @@ class App extends React.Component {
 
 
   render() {
-    const { movies, badge } = this.state;
+    const { badge } = this.state;
     return (
       <BrowserRouter>
         <div id="app">
@@ -108,9 +108,7 @@ class App extends React.Component {
                 {...this.state}
               />
             </Route>
-            <Route exact path="/:id">
-              <Movie />
-            </Route>
+            <Route exact path="/:id" component={Movie} />
             <Route component={NotFound} />
           </Switch>
 
