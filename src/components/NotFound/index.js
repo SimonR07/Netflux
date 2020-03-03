@@ -2,7 +2,7 @@ import React from 'react';
 
 const styles = {
   title: {
-    fontSize: '18rem',
+    fontSize: '12rem',
   },
 };
 const NotFound = (props) => {
