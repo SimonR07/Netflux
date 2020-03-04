@@ -1,5 +1,6 @@
 import React from 'react';
 import './header.scss';
+import { func } from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import logo from 'src/images/netflux-logo.svg';
@@ -18,3 +19,11 @@ const Header = ({ onSearch }) => (
 );
 
 export default Header;
+
+Header.defaultProps = {
+  onSearch: func,
+};
+
+Header.propTypes = {
+  onSearch: func,
+};
