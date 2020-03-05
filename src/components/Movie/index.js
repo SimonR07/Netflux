@@ -7,59 +7,59 @@ const API_KEY = '5dd8930949e7c1cc9ceda25ad6ac8de5';
 const styles = {
   root: {
     flexGrow: 1,
-    position:'absolute'
+    position: 'absolute',
   },
-  title : {
-    marginBottom:'2rem',
-    fontSize:'6rem'
+  title: {
+    marginBottom: '2rem',
+    fontSize: '6rem',
   },
-  text:{
-    display:'block',
-    fontSize:'4rem',
-    textAlign: 'justify'
-  }
-}
+  text: {
+    display: 'block',
+    fontSize: '4rem',
+    textAlign: 'justify',
+  },
+};
 
 class Movie extends React.Component {
-    state = {
-      title: '',
-      overview: '',
-    }
+  state = {
+    title: '',
+    overview: '',
+  }
 
-    async componentDidMount() {
-      try {
-        const {
-          data: {
-            title,
-            overview,
-          },
-        } = await this.loadInfos();
-        this.setState({
+  async componentDidMount() {
+    try {
+      const {
+        data: {
           title,
           overview,
-        });
-      }
-      catch (e) {
-        console.log('e', e);
-      }
+        },
+      } = await this.loadInfos();
+      this.setState({
+        title,
+        overview,
+      });
     }
+    catch (e) {
+      console.log('e', e);
+    }
+  }
 
-    loadInfos = () => {
-      const movie_id = this.props.match.params.id;
-      console.log('movie:', movie_id);
-      const url = `${API_END_POINT}/movie/${movie_id}?api_key=${API_KEY}&language=en`;
-      return axios.get(url);
-    }
+  loadInfos = () => {
+    const movie_id = this.props.match.params.id;
+    console.log('movie:', movie_id);
+    const url = `${API_END_POINT}/movie/${movie_id}?api_key=${API_KEY}&language=en`;
+    return axios.get(url);
+  }
 
-    render() {
-      const classes = styles;
-      return (
-        <div style={classes.root}>
-          <h3 style={classes.title}>{this.state.title}</h3>
-          <p style={classes.text}>{this.state.overview}</p>
-        </div>
-      );
-    }
+  render() {
+    const classes = styles;
+    return (
+      <div style={classes.root}>
+        <h3 style={classes.title}>{this.state.title}</h3>
+        <p style={classes.text}>{this.state.overview}</p>
+      </div>
+    );
+  }
 }
 
 export default Movie;

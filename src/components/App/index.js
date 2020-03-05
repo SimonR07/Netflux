@@ -2,11 +2,14 @@
 import React from 'react';
 import axios from 'axios';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Provider } from 'react-redux';
+
 
 import Home from 'src/components/Home';
 import Header from 'src/components/Header';
 import Movie from 'src/components/Movie';
 import NotFound from 'src/components/NotFound';
+import store from './store';
 // == Import : local
 import './app.scss';
 // import dataMovies from 'src/data/movies';
@@ -101,20 +104,22 @@ class App extends React.Component {
     const { badge } = this.state;
     return (
       <BrowserRouter>
-        <div id="app">
-          <Header onSearch={this.handleSearch} badge={badge} />
-          <Switch>
-            <Route exact path="/">
-              <Home
-                loadMore={this.loadMore}
-                {...this.state}
-              />
-            </Route>
-            <Route exact path="/:id" component={Movie} />
-            <Route component={NotFound} />
-          </Switch>
+        <Provider store={store}>
+          <div id="app">
+            <Header onSearch={this.handleSearch} badge={badge} />
+            <Switch>
+              <Route exact path="/">
+                <Home
+                  loadMore={this.loadMore}
+                  {...this.state}
+                />
+              </Route>
+              <Route exact path="/:id" component={Movie} />
+              <Route component={NotFound} />
+            </Switch>
+          </div>
 
-        </div>
+        </Provider>
       </BrowserRouter>
     );
 
