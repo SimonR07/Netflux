@@ -1,3 +1,4 @@
+/* eslint-disable no-bitwise */
 
 import React from 'react';
 import { string, number } from 'prop-types';
@@ -49,17 +50,17 @@ const colorSix = css({
 
 const Poster = ({ title, id }) => {
   const size = () => {
-     if (title.length <= 5) {
+    if (title.length <= 5) {
       return <h3 {...colorOne} className="poster-little">{title}</h3>;
-      } if (title.length > 5 && title.length <= 10) {
-        return <h3 {...colorTwo} className="poster-middle">{title}</h3>;
-      } if (title.length > 10 && title.length <= 15) {
-        return <h3 {...colorThree} className="poster-middle2">{title}</h3>;
-      } if (title.length > 15 && title.length <= 20) {
-        return <h3 {...colorFour} className="poster-middle3">{title}</h3>;
-      } if (title.length > 20 && title.length <= 40) {
-        return <h3 {...colorFive} className="poster-middle4">{title}</h3>;
-      }
+    } if (title.length > 5 && title.length <= 10) {
+      return <h3 {...colorTwo} className="poster-middle">{title}</h3>;
+    } if (title.length > 10 && title.length <= 15) {
+      return <h3 {...colorThree} className="poster-middle2">{title}</h3>;
+    } if (title.length > 15 && title.length <= 20) {
+      return <h3 {...colorFour} className="poster-middle3">{title}</h3>;
+    } if (title.length > 20 && title.length <= 40) {
+      return <h3 {...colorFive} className="poster-middle4">{title}</h3>;
+    }
     return <h3 {...colorSix} className="poster-big">{title}</h3>;
   };
   return <Link to={{ pathname: `/${id}` }}>{size()}</Link>;
@@ -77,4 +78,3 @@ Poster.propTypes = {
   title: string,
   id: number,
 };
-

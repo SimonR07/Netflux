@@ -16,3 +16,21 @@ export const removeFromBasket = () => ({
 
   },
 });
+
+export const LOG_IN = 'LOG_IN';
+
+export const isLogged = () => ({
+  type: LOG_IN,
+  payload: {
+
+  },
+});
+
+/* export const LOG_OUT = 'LOG_OUT';
+
+export const isLoggedOut = () => ({
+  type: LOG_OUT,
+  payload: {
+
+  },
+}); */
